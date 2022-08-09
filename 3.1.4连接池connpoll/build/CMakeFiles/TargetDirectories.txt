@@ -1,0 +1,4 @@
+/mnt/hgfs/pool/src/mysql_pool/build/CMakeFiles/rebuild_cache.dir
+/mnt/hgfs/pool/src/mysql_pool/build/CMakeFiles/edit_cache.dir
+/mnt/hgfs/pool/src/mysql_pool/build/CMakeFiles/test_dbpool.dir
+/mnt/hgfs/pool/src/mysql_pool/build/CMakeFiles/test_curd.dir
