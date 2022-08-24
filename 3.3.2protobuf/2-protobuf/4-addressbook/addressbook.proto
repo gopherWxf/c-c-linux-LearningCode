@@ -1,0 +1,60 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";    // proto2
+package tutorial;     // package类似C++命名空间
+// 可以引用本地的，也可以引用include里面的
+import "google/protobuf/timestamp.proto";   // 已经写好的proto文件是可以引用
+// [END declaration]
+
+//protoc -I=/路径1 --cpp_out=./路径2 /路径1/addressbook.proto
+//路径1为.proto所在的路径
+//路径2为.cc和.h生成的位置
+//将指定proto文件生成.pb.cc和.pb.h
+//protoc -I=./ --cpp_out=./ addressbook.proto
+//将对应目录的所有proto文件生成.pb.cc和.pb.h
+//protoc -I=./ --cpp_out=./ *.proto
+
+
+// [START java_declaration]
+option java_package = "com.example.tutorial";
+option java_outer_classname = "AddressBookProtos";
+// [END java_declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "Google.Protobuf.Examples.AddressBook";
+// [END csharp_declaration]
+
+// [START messages]
+message Person {    // message类似C++的class
+  string name   = 1;
+  int32 id      = 2;  // Unique ID number for this person.
+  string email  = 3;
+
+  enum PhoneType {    // enum 枚举类型
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    string number = 1;    // 字符串 电话号码
+    PhoneType type = 2;   //
+  }
+
+  repeated PhoneNumber phones = 4;    // 重复0~多个，一个人有多个电话
+
+  google.protobuf.Timestamp last_updated = 5; // import "google/protobuf/timestamp.proto"
+}
+
+// Our address book file is just one of these.
+message AddressBook {
+  repeated Person people = 1;   // 电话簿有多人的电话
+}
+// [END messages]

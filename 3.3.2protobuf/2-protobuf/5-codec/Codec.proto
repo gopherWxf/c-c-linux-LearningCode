@@ -1,0 +1,115 @@
+syntax = "proto3";  // syntax 版本2/3是不一样，默认是proto2
+package Codec;	//  package 生成对应的C++命名空间  Codec::
+//option optimize_for = LITE_RUNTIME;
+
+//protoc -I=./ --cpp_out=./  Codec.proto
+// Type = 0 起始 varint
+
+//使用T开头测试
+message Tint32{
+    int32   n1     = 1;
+}
+
+
+message Tint64{
+    int64   n1     = 1;
+}
+
+message Tuint32{
+    uint32   n1     = 1;
+}
+
+message Tuint64{
+    uint64   n1     = 1;
+}
+
+message Tsint32{
+    sint32   n1     = 1;
+}
+
+message Tsint64{
+    sint64   n1     = 1;
+}
+
+
+message Tbool{
+    bool   n1     = 1;
+}
+
+enum PhoneType{
+	PHONE_DEFAULT			= 0x0;		
+    PHONE_HOME              = 0x0001;   // 家庭电话
+    PHONE_WORK              = 0x0002;   // 工作电话     
+}
+message Tenum{
+    PhoneType   n1     = 1;
+}
+// Type = 0 结束
+
+// Type = 1 起始 64bit
+message Tfixed64{
+    fixed64   n1     = 1;
+}
+
+message Tsfixed64{
+    sfixed64   n1     = 1;
+}
+
+message Tdouble{
+    double   n1     = 1;
+}
+
+
+// Type = 1 结束
+
+// Type = 2 起始 length delimited
+
+message Tstring{
+    string   n1     = 1;
+}
+
+message Tbytes{
+    bytes   n1     = 1;
+}
+
+// 嵌套消息
+message Tembeddedmessages{
+    message TMsg {
+        int32  n1     = 1;
+    }  
+
+    TMsg n1 = 1; 
+}
+
+message TRepeatedfields{
+    repeated int32   n1     = 1;
+	repeated Tbytes  n2     = 2;
+}
+
+// Type = 2 结束
+
+// Type = 5 起始
+message Tfixed32{
+    fixed32   n1     = 1;
+}
+
+message Tsfixed32{
+    sfixed32   n1     = 1;
+}
+
+message Tfloat{
+    float   n1     = 1;
+}
+
+
+message THasitem{
+    int32   n1_int32     = 3000;
+    int32   n2_int32     = 2;
+	uint32  n3_uint32    = 3;
+	sint32  n4_sint32	 = 4; 
+	fixed32 n5_fixed32 	= 5; 
+	float  n6_float 	= 6; 
+	bytes  n7_bytes 	= 7; 
+	Tbytes  n8_Tbytes     = 8;
+	int32   n9_int32     = 9;
+}
