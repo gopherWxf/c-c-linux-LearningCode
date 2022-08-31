@@ -1,0 +1,12 @@
+第二节课 C++上完再统一使用cmake进行编译。
+
+使用cmake进行编译，需要设置为c++14
+
+步骤：
+1. 进入源码目录
+cd src2-cmake
+2. 创建build目录，并进入build目录
+mkdir build
+cd build
+cmake ..
+make 
