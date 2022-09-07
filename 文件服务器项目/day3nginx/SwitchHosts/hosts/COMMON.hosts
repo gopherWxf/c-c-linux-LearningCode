@@ -1,0 +1,4 @@
+#@SwitchHosts! {"url": null, "icon_idx": 0, "title": "COMMON.hosts"}
+# common
+#公用host
+127.0.0.1 www.xmind.net
